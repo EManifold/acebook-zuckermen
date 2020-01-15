@@ -6,3 +6,5 @@ class UsersController < Clearance::UsersController
     params.require(:user).permit(:first_name, :surname, :email, :password)
   end
 end
+
+'test'
