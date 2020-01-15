@@ -12,3 +12,4 @@ script:
   - bundle exec rspec
 
   'test travis'
+  'another test'
