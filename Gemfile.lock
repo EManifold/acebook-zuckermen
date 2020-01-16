@@ -249,6 +249,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler
   byebug
   capybara (~> 2.13)
   clearance
