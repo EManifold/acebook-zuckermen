@@ -10,7 +10,6 @@ def sign_up(firstname, surname, email, password)
   end
 end
 
-<<<<<<< HEAD
 def sign_in(email, password)
   visit '/'
   fill_in "Email", with: email
@@ -19,7 +18,6 @@ def sign_in(email, password)
     click_on 'Sign in'
   end
 end
-=======
 def new_post(message)
   visit "/posts"
   click_link "New post"
@@ -27,4 +25,3 @@ def new_post(message)
   click_button "Submit"
 end
 
->>>>>>> master
