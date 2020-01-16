@@ -1,9 +1,9 @@
 language: ruby
 rvm:
   - 2.5.0
-  - 1.9.3
-  - jruby-19mode
-  - rbx-2
+
+env:
+  - RACK_ENV=test
 
 script:
   - bundle install - jobs=4 - retry=4
