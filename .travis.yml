@@ -1,12 +1,9 @@
 language: ruby
 rvm:
-  - 2.5.0
+  - 2.6.5
 
 env:
-  - RACK_ENV='test'
-
-before_install:
-  - gem install -v 1.17.3 bundler --no-rdoc --no-ri
+  - RACK_ENV=test
 
 script:
   - bundle install

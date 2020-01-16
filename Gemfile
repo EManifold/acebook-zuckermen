@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 
-ruby "2.5.0"
+ruby "2.6.5"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'bundler'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.1'
 # Use clearance for authentication and user functionality
