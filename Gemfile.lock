@@ -249,6 +249,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler (>= 2.1.4)
   byebug
   capybara (~> 2.13)
   clearance
@@ -269,7 +270,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 RUBY VERSION
-   ruby 2.5.0p0
+   ruby 2.6.5p114
 
 BUNDLED WITH
    2.1.4
