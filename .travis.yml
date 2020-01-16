@@ -5,6 +5,9 @@ rvm:
 env:
   - RACK_ENV='test'
 
+before_install:
+  - gem install -v 1.17.3 bundler --no-rdoc --no-ri
+
 script:
   - bundle install
   - bundle exec rake db:create
