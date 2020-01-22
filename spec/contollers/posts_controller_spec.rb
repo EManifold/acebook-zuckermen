@@ -15,7 +15,7 @@ RSpec.describe PostsController, type: :controller do
     end
 
     describe "POST /" do
-      it "responds with 200" do
+      it "redirects to posts url when create message" do
         post :create, params: { post: { message: "Hello, world!" } }
         expect(response).to redirect_to(posts_url)
       end
@@ -33,15 +33,25 @@ RSpec.describe PostsController, type: :controller do
       end
     end
 
-    # describe "PATCH /" do
-    #   it "edits a post" do
-    #     post :create, params: { post: { message: "Hello, world!" } }
-    #     @id = Post.find_by(message: "Hello, world!").id
-    #     post :update , params: { post: { message: "Hellooo, world!" } }
+    describe "PATCH /" do
+      it "edits a post" do
+        post :create, params: { post: { message: "Hello, world!" } }
+        @id = Post.find_by(message: "Hello, world!").id
+        patch :update , params: { id: @id, post: { message: "Hellooo, world!" } }
        
-    #     expect(Post.find_by(message: "Hellooo, world!").message).to eq "Hellooo, world!"
-    #   end
-    # end
+        expect(Post.find_by(message: "Hellooo, world!").message).to eq "Hellooo, world!"
+      end
+    end
+
+    describe "DELETE /" do
+      it "deletes a post" do
+        post :create, params: { post: { message: "Hello, world!" } }
+        @id = Post.find_by(message: "Hello, world!").id
+        delete :destroy , params: { id: @id }
+       
+        expect(Post.find_by(message: "Hellooo, world!")).to eq nil
+      end
+    end
   end
 
   describe "Signed out" do
