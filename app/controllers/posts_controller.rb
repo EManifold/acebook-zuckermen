@@ -21,7 +21,17 @@ class PostsController < ApplicationController
     @user = current_user
     @post = @user.posts.new(post_params)
     @post.line_break
-    @post.save ? (redirect_to posts_url) : (render 'new')
+    # @post.save ? (redirect_to posts_url) : (render 'new')
+    if @post.save
+      if @post.receiver_id
+        redirect_to "/#{@post.receiver_id}"
+      else
+        redirect_to posts_url
+      end
+    else
+      render 'new'
+    end
+
   end
 
   def destroy
@@ -35,11 +45,13 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.where(receiver_id: nil)
     @comment = Comment.new
   end
 
   def wall
+    @post = Post.new
+    @posts = Post.where(receiver_id: params[:id])
     if User.exists?(params[:id])
       @user = User.find(params[:id])
     else
@@ -55,6 +67,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:message)
+    params.require(:post).permit(:message, :receiver_id)
   end
 end

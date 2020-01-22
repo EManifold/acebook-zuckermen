@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20200121111943) do
+ActiveRecord::Schema.define(version: 20200122144018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +30,7 @@ ActiveRecord::Schema.define(version: 20200121111943) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.integer "receiver_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20200121111943) do
     t.string "first_name"
     t.string "surname"
     t.string "email"
-    t.string "password"
     t.string "encrypted_password", limit: 128
     t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128
