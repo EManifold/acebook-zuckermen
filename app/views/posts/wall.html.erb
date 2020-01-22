@@ -1,1 +1,17 @@
+<% if current_user.id == @user.id %>
+  <form>
+    <select id='wall-color'>
+      <option disabled selected>Choose background:</option>
+      <option value='rgb(7, 7, 36)'>Blue</option>
+      <option value='rgb(165, 136, 92)'>Orange</option>
+    </select>
+  </form>
+  <form>
+    <select id='wall-font'>
+      <option disabled selected>Choose font:</option>
+      <option value="'Gelasio', serif">Gelasio</option>
+      <option value="'Press Start 2P', cursive">Press Start 2P</option>
+    </select>
+  </form>
+<% end %>
 <h1><%= @user.first_name %>'s Wall</h1>
