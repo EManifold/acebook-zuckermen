@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 RSpec.feature "Sign up", type: :feature do
-  scenario "Can create an account" do
+  scenario "Can create an account and it is redirected to his wall" do
     sign_up("David", "Bacall", "dbacall@hotmail.co.uk", "password")
+    user = User.find_by(email: "dbacall@hotmail.co.uk")
     expect(page).to have_content("Hello David!")
-    expect(page).to have_content("Feed")
+    expect(page).to have_content("David's Wall")
+    expect(page.current_path).to eq("/#{user.id}")
   end
 
   scenario "Password must be between 6 and 10 characters" do

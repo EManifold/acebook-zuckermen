@@ -8,7 +8,7 @@ class UsersController < Clearance::UsersController
       redirect_to '/sign_up'
     elsif @user.save
       sign_in @user
-      redirect_to posts_path
+      redirect_to user_wall_path(@user)
     else
       render template: "users/new"
     end

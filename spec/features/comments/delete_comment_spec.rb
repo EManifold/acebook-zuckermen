@@ -23,6 +23,7 @@ RSpec.feature "Delete", type: :feature do
     click_on 'Sign out'
 
     sign_up('Andrea', 'Diotallevi', 'andrea@example.co.uk', 'password')
+    click_on 'Home'
 
     within('.comment') do
       click_link "Delete"
