@@ -50,9 +50,13 @@ class PostsController < ApplicationController
   end
 
   def wall
-    @user = User.find(params[:id])
     @post = Post.new
     @posts = Post.where(receiver_id: params[:id])
+    if User.exists?(params[:id])
+      @user = User.find(params[:id])
+    else
+      render_404
+    end
   end
 
   def update
