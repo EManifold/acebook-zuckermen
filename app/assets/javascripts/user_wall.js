@@ -1,12 +1,14 @@
 $( document ).ready(function() {
 
-  $( "#wall-color" ).change(function() {
-    wallColor = $( "#wall-color").val()
-    $( 'body' ).css("background-color", wallColor)
-  })
+  customise = function(id, cssAttribute) {
+    $(`#${id}`).change(function() {
+      var value = $( `#${id}`).val()
+      $( "body").css(`${cssAttribute}`, value)
+    })
+  }
 
-  $( "#wall-font" ).change(function() {
-    wallFont = $( "#wall-font").val()
-    $( 'body' ).css("font-family", wallFont)
-  })
+  customise("wall-color", "background-color")
+
+  customise("wall-font", "font-family")
+
 });
