@@ -1,13 +1,22 @@
 # AceBook
 
-REQUIRED INSTRUCTIONS:
+## Poject description
 
-1. Fork this repository to `acebook-teamname` and customize
-the below**
+Façade Brochuré - A superior classy alternative to Facebook. The fullstack web app is packed full of impressive features. Users can sign up, log in, post and comment using our fancy UI. For a more personalised experience, users can choose between a range of themes and fonts for their individual newsfeed and wall. Users can be confident in our highly secure system that protects their sensitive password data and does not allow other users to post on their behalf. Watch this space for new exciting features that Mark Zuckerberg could only dream of.
 
-[You can find the engineering project outline here.](https://github.com/makersacademy/course/tree/master/engineering_projects/rails)
+## The dev team
 
-2. The card wall is here: <please update>
+# Harry Mumford
+  * [Harry's Github](https://github.com/HarryMumford)
+
+# Andrea Diotallevi
+  * [Andrea's Github](https://github.com)
+
+# David Bacall
+  * [David's Github](https://github.com)
+
+# Ellie Manifold
+  * [Ellie's Github](https://github.com)
   
 ## [Live Demo](https://intense-stream-74805.herokuapp.com/)
 
@@ -24,6 +33,13 @@ First, clone this repository. Then:
 > rails server # Start the server at localhost:3000
 ```
 
+To run the tests:
+
+```
+> bundle exec rspec
+> bundle exec rubocop
+```
+
 ## Code Climate
 [![Maintainability](https://api.codeclimate.com/v1/badges/7fda849bdfddf3bc3ed5/maintainability)](https://codeclimate.com/github/EManifold/acebook-zuckermen/maintainability)
 
@@ -38,3 +54,12 @@ First, clone this repository. Then:
 
 ## How to contribute to this project
 See [CONTRIBUTING.md](CONTRIBUTING.md)
+
+## Initial requirements
+
+1. Fork this repository to `acebook-teamname` and customize
+the below**
+
+[You can find the engineering project outline here.](https://github.com/makersacademy/course/tree/master/engineering_projects/rails)
+
+2. The card wall is here: <please update>
