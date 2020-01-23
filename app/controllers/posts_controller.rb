@@ -49,6 +49,7 @@ class PostsController < ApplicationController
   end
 
   def wall
+    @comment = Comment.new
     @post = Post.new
     if User.exists?(params[:id])
       @user = User.find(params[:id])

@@ -21,7 +21,7 @@ def sign_in(email, password)
 end
 
 def new_post(message)
-  click_on 'Home'
+  visit '/posts'
   click_link "New post"
   fill_in "Message", with: message
   click_button "Submit"
@@ -29,6 +29,12 @@ end
 
 def new_comment(message)
   click_on 'Home'
+  fill_in "comment[message]", with: message
+  click_on "Comment"
+end
+
+def new_wall_comment(receiver_id, message)
+  visit("/#{receiver_id}")
   fill_in "comment[message]", with: message
   click_on "Comment"
 end
