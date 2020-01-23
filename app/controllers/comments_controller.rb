@@ -36,14 +36,14 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
-
+    @post = Post.find_by(id: params["comment"][:post_id])
     respond_to do |format|
-      if @comment.save
+      if @comment.save && @post.receiver_id
+        format.html { redirect_to "/#{@post.receiver_id}", notice: 'Comment was successfully created.' }
+      elsif @comment.save
         format.html { redirect_to posts_path, notice: 'Comment was successfully created.' }
-        format.json { render :show, status: :created, location: @comment }
       else
         format.html { redirect_to posts_path, notice: 'Comment must not be blank.' }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,10 +54,8 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.update(comment_params)
         format.html { redirect_to posts_path, notice: 'Comment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -68,11 +66,9 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if !correct_user?
         format.html { redirect_to posts_path, notice: 'You can only delete your own comments' }
-        format.json { render :index, status: :created, location: @comment }
       else
         @comment.destroy
         format.html { redirect_to posts_url, notice: 'Comment was successfully destroyed.' }
-        format.json { head :no_content }
       end
     end
   end
