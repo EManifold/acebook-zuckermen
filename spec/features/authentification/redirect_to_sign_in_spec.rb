@@ -8,7 +8,7 @@ RSpec.feature "Redirect to home" do
   end
 
   scenario "it redirects to homepage if not signed in" do
-    sign_up('Harry', 'Mumford', 'harry_mumford@hotmail.co.uk', 'password')
+    sign_up('Harry', 'Mumford', 'hmumford', 'harry_mumford@hotmail.co.uk', 'password')
     user_1_id = User.all.first.id
     click_on 'Sign out'
 

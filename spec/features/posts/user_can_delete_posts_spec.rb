@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Update", type: :feature do
   before(:each) do
-    sign_up('Harry', 'Mumford', 'harry_mumford@hotmail.co.uk', 'password')
+    sign_up('Harry', 'Mumford', 'hmumford', 'harry_mumford@hotmail.co.uk', 'password')
   end
 
   scenario "Can update specific posts" do
@@ -21,7 +21,9 @@ RSpec.feature "Update", type: :feature do
     new_post('First post')
     click_on "Sign out"
 
-    sign_up('Andrea', 'Diotallevi', 'andrea@example.com', 'password')
+    sign_up('Andrea', 'Diotallevi', 'adiotallevi', 'andrea@example.com', 'password')
+    click_on 'Home'
+
     within(first(".post")) do
       click_link "Delete"
     end

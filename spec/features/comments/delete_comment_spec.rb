@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Delete", type: :feature do
   before(:each) do
-    sign_up('Harry', 'Mumford', 'harry_mumford@hotmail.co.uk', 'password')
+    sign_up('Harry', 'Mumford', 'hmumford', 'harry_mumford@hotmail.co.uk', 'password')
   end
 
   scenario "Can update a comment" do
@@ -22,7 +22,8 @@ RSpec.feature "Delete", type: :feature do
 
     click_on 'Sign out'
 
-    sign_up('Andrea', 'Diotallevi', 'andrea@example.co.uk', 'password')
+    sign_up('Andrea', 'Diotallevi', 'adiotallevi', 'andrea@example.co.uk', 'password')
+    visit('/posts')
 
     within('.comment') do
       click_link "Delete"

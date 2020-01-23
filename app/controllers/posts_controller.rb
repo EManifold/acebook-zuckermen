@@ -21,7 +21,6 @@ class PostsController < ApplicationController
     @user = current_user
     @post = @user.posts.new(post_params)
     @post.line_break
-    # @post.save ? (redirect_to posts_url) : (render 'new')
     if @post.save
       if @post.receiver_id
         redirect_to "/#{@post.receiver_id}"
@@ -50,10 +49,13 @@ class PostsController < ApplicationController
   end
 
   def wall
-    @post = Post.new
-    @posts = Post.where(receiver_id: params[:id])
+    @comment, @post = Comment.new, Post.new
     if User.exists?(params[:id])
-      @user = User.find(params[:id])
+      @user, @posts = User.find(params[:id]), Post.where(receiver_id: params[:id])
+    elsif User.find_by(username: params[:id])
+      @user = User.find_by(username: params[:id])
+      @posts = Post.where(receiver_id: @user.id)
+      render :wall
     else
       render_404
     end
