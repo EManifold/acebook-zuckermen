@@ -49,11 +49,9 @@ class PostsController < ApplicationController
   end
 
   def wall
-    @comment = Comment.new
-    @post = Post.new
+    @comment, @post = Comment.new, Post.new
     if User.exists?(params[:id])
-      @user = User.find(params[:id])
-      @posts = Post.where(receiver_id: params[:id])
+      @user, @posts = User.find(params[:id]), Post.where(receiver_id: params[:id])
     elsif User.find_by(username: params[:id])
       @user = User.find_by(username: params[:id])
       @posts = Post.where(receiver_id: @user.id)

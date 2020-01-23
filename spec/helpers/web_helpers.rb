@@ -28,7 +28,7 @@ def new_post(message)
 end
 
 def new_comment(message)
-  click_on 'Home'
+  visit '/posts'
   fill_in "comment[message]", with: message
   click_on "Comment"
 end
