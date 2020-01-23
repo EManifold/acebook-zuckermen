@@ -18,14 +18,12 @@ Façade Brochuré - A superior classy alternative to Facebook. The fullstack web
   * [Harry's Github](https://github.com/HarryMumford)
 
 ### Andrea Diotallevi
-  * Favourite quote: *"La vita è come una scatola di microonde"*
   * [Andrea's Github](https://github.com)
 
 ### David Bacall
   * [David's Github](https://github.com)
 
 ### Ellie Manifold
-  * Fun fact about myself: I own three horses; Felicity, Jasper and Oswald and I love them dearly.
   * [Ellie's Github](https://github.com)
   
 ## [Live Demo](https://intense-stream-74805.herokuapp.com/)
