@@ -8,8 +8,9 @@ class UsersController < Clearance::UsersController
       redirect_to '/sign_up'
     elsif @user.save
       sign_in @user
-      redirect_to posts_path
+      redirect_to user_wall_path(@user)
     else
+      flash[:alert] = "Username already taken!"
       render template: "users/new"
     end
 
@@ -18,7 +19,7 @@ class UsersController < Clearance::UsersController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :surname, :email, :password)
+    params.require(:user).permit(:first_name, :surname, :username, :email, :password)
   end
 
   def password_length_checker

@@ -52,6 +52,9 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
     - 'test/**/*'
+
+AllCops:
+  Exclude:
     - 'db/**/*'
 
 # Code Style

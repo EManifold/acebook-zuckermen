@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Comments", type: :feature do
   scenario "Comments should be added to post" do
-    sign_up('Harry', 'Mumford', 'harry_mumford@hotmail.co.uk', 'password')
+    sign_up('Harry', 'Mumford', 'hmumford', 'harry_mumford@hotmail.co.uk', 'password')
     new_post('First post')
 
     new_comment('Test comment')
@@ -20,7 +20,7 @@ RSpec.feature "Comments", type: :feature do
   end
 
   scenario "shows error if don't fill in comment field" do
-    sign_up('Harry', 'Mumford', 'harry_mumford@hotmail.co.uk', 'password')
+    sign_up('Harry', 'Mumford', 'hmumford', 'harry_mumford@hotmail.co.uk', 'password')
     new_post('First post')
 
     new_comment('')
