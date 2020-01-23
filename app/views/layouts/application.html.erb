@@ -6,25 +6,29 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Gelasio:400,700|Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
 
   </head>
 
   <body>
-   <% if signed_in? %>
-      Hello <%= current_user.first_name %>!
-      <%= button_to 'Sign out', sign_out_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Sign in', sign_in_path %>
-    <% end %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <h1 id='title'>façade brochuré</h1>
+      <div class="navbar-nav">
+        <div><%= link_to "Home", posts_path, class: "nav-item nav-link" %></div>
+        <% if signed_in? %>
+          <%= link_to "Your Account", user_wall_path(current_user.id), class: "nav-item nav-link" %>
+          <%= link_to 'Sign out', sign_out_path, method: :delete, class: "nav-item nav-link" %>
+          <p id='welcome-msg'>Hello <%= link_to "#{current_user.first_name}", user_wall_path(current_user.id) %>!</p>
+        <% else %>
+          <%= link_to 'Sign in', sign_in_path, class: "nav-item nav-link"  %>
+          <%= link_to 'Sign up', sign_up_path, class: "nav-item nav-link"  %>
+        <% end %>
 
-      <div id="flash">
-      <% flash.each do |key, value| %>
-        <div class="flash <%= key %>"><%= value %></div>
-      <% end %>
-    </div>
-    <h1>Zuckermen</h1>
-    <%= yield %>
+      </div>
+    </nav>
+        <%= yield %>
   </body>
 </html>

@@ -1,15 +1,18 @@
 <div id="clearance" class="sign-up">
   <h2><%= t(".title") %></h2>
+  <div id="flash">
+    <% flash.each do |key, value| %>
+      <div class="flash <%= key %>"><%= value %></div>
+    <% end %>
+  </div>
+  <div class="form">
+    <%= form_for @user do |form| %>
+      <%= render partial: '/users/form', object: form %>
 
-  <%= form_for @user do |form| %>
-    <%= render partial: '/users/form', object: form %>
+      <div class="submit-field">
+        <input type='submit' value='Sign up' class="btn btn-primary" %>
+      </div>
 
-    <div class="submit-field">
-      <%= form.submit %>
-    </div>
-
-    <div class="other-links">
-      <%= link_to t(".sign_in"), sign_in_path %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

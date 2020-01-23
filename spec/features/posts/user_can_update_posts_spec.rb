@@ -12,8 +12,8 @@ RSpec.feature "Update", type: :feature do
       click_link "Edit"
     end
 
-    fill_in "Message", with: "Updated first post"
-    click_on "Submit"
+    fill_in "post[message]", with: "Updated first post"
+    click_on "Post Message"
 
     visit '/posts'
 

@@ -1,7 +1,7 @@
 def sign_up(firstname, surname, email, password)
   visit "/"
   click_on "Sign up"
-  fill_in "First name", with: firstname
+  fill_in "First Name", with: firstname
   fill_in "Surname", with: surname
   fill_in "Email", with: email
   fill_in "Password", with: password
@@ -22,14 +22,14 @@ end
 def new_post(message)
   visit('/posts')
   click_link "New post"
-  fill_in "Message", with: message
-  click_button "Submit"
+  fill_in "post[message]", with: message
+  click_button "Post Message"
 end
 
 def new_comment(message)
   visit('/posts')
   fill_in "comment[message]", with: message
-  click_on "Comment"
+  click_on "Post Comment"
 end
 
 def new_user_wall_post(receiver_id, message)

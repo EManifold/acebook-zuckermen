@@ -1,27 +1,47 @@
 <h2>Feed</h2>
-
-<%= link_to new_post_path do %>
-  New post
-<% end %>
-
+<div id="new-post">
+  <%= link_to new_post_path, class: "btn btn-primary btn-lg" do %>
+    New post
+  <% end %>
+<div id="flash">
+  <% flash.each do |key, value| %>
+    <div class="flash <%= key %>"><%= value %></div>
+  <% end %>
+</div>
+<ul>
+  <% @comment.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>
+</div>
 <% @posts.reverse.each do |post| %>
   <div class='post' id='<%=post.id%>'>
-  <% @user = User.where(id: post.user_id)[0] %> 
-  <p><%= link_to "#{@user.first_name} #{@user.surname}", user_wall_path(@user) %></p>
-  <p><%= post.message.html_safe %></p>
-  <p><%= post.created_at.strftime('%d %B %Y at %k:%M') %></p>
-  <%= link_to 'Delete', post_path(post), method: :delete %>
-  <%= link_to 'Edit', edit_post_path(post) %>
-  <%= render 'comments_form', comment: @comment, post: post %>
-  <% Comment.where(post_id: post.id).reverse.each do |comment| %>
-    <% user = User.where(id: comment.user_id)[0] %>
-    <div class="comment">
-      <p class="comment-user"> <%= user.first_name %> <%= user.surname %> </p>
-      <p class="comment-message"> <%= comment.message %> </p>
-      <p class="comment-time"> <%= comment.created_at.strftime('%d %B %Y at %k:%M') %> </p>
-      <%= link_to 'Edit', edit_comment_path(comment) %>
-      <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% @user = User.where(id: post.user_id)[0] %> 
+    <p><%= link_to "#{@user.first_name} #{@user.surname}", user_wall_path(@user) %></p>
+    <p><%= post.message.html_safe %></p>
+    <p><%= post.created_at.strftime('%d %B %Y at %k:%M') %></p>
+    <%= link_to 'Comment', posts_path, class: "comment-btn btn btn-primary comment-btn-#{post.id}" %>
+    <%= link_to 'Show Comments', posts_path, class: "show-comments-btn btn btn-primary show-comments-btn-#{post.id}" %>
+    <%= link_to 'Delete', post_path(post), method: :delete, class: "btn btn-primary" %>
+    <%= link_to 'Edit', edit_post_path(post), class: "btn btn-primary" %>
+    
+    <div class='comments' id="comment-<%= post.id %>"> 
+      <div class='comment-form'>
+        <%= render 'comments_form', comment: @comment, post: post %>
+      </div>
     </div>
-  <% end %>
+    <div class='comments' id="show-comments-<%= post.id %>"> 
+      <% Comment.where(post_id: post.id).reverse.each do |comment| %>
+        <% user = User.where(id: comment.user_id)[0] %>
+        <div class="comment">
+          <p class="comment-user"> <%= user.first_name %> <%= user.surname %> </p>
+          <p class="comment-message"> <%= comment.message %> </p>
+          <p class="comment-time"> <%= comment.created_at.strftime('%d %B %Y at %k:%M') %> </p>
+          <%= link_to 'Edit', edit_comment_path(comment), class: "btn btn-primary" %>
+          <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
   </div>
+
 <% end %>

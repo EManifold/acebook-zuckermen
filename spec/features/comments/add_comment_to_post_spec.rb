@@ -6,9 +6,7 @@ RSpec.feature "Comments", type: :feature do
     new_post('First post')
 
     new_comment('Test comment')
-    within ".comment-message" do
-      expect(page).to have_content 'Test comment'
-    end
+    expect(page).to have_content 'Test comment'
 
     within ".comment-user" do
       expect(page).to have_content 'Harry Mumford'

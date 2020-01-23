@@ -1,16 +1,14 @@
-body {
-  background-color: rgb(165, 136, 92);
-  color: white;
-  font-family: 'Gelasio', serif;
-}
 
 .post {
   text-align: center;
   border: 1px solid black;
+  width: 70%;
+  margin: auto;
+  margin-bottom: 3%;
+  background-color: #1b262c;
+  border-radius: 10px;
 }
-.comment {
-  background-color: rgb(220, 220, 220);
-}
+
 .comment-user, .post-user {
   font-weight: bold;
 }
