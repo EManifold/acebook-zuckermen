@@ -4,18 +4,25 @@
 
 Façade Brochuré - A superior classy alternative to Facebook. The fullstack web app is packed full of impressive features. Users can sign up, log in, post and comment using our fancy UI. For a more personalised experience, users can choose between a range of themes and fonts for their individual newsfeed and wall. Users can be confident in our highly secure system that protects their sensitive password data and does not allow other users to post on their behalf. Watch this space for new exciting features that Mark Zuckerberg could only dream of.
 
+### Software used
+
+* Ruby on Rails
+* 
+
 ## The dev team
 
 ### Harry Mumford
   * [Harry's Github](https://github.com/HarryMumford)
 
 ### Andrea Diotallevi
+  * Favourite quote: *"La vita è come una scatola di microonde"*
   * [Andrea's Github](https://github.com)
 
 ### David Bacall
   * [David's Github](https://github.com)
 
 ### Ellie Manifold
+  * Fun fact about myself: I own three horses; Felicity, Jasper and Oswald and I love them dearly.
   * [Ellie's Github](https://github.com)
   
 ## [Live Demo](https://intense-stream-74805.herokuapp.com/)
