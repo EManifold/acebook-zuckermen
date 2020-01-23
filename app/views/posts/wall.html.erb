@@ -14,20 +14,21 @@
     </select>
   </form>
 <% end %>
-<h1><%= @user.first_name %>'s Wall</h1>
+<h2><%= @user.first_name %>'s Wall</h2>
+<div class="new-wall-post">
+  <%= form_for @post do |form| %>
+    <div class="field">
+      <%= form.text_area :message %>
+    </div>
 
-<%= form_for @post do |form| %>
-  <div class="field">
-    <%= form.text_area :message %>
-  </div>
+    <div class="actions">
+      <input type='submit' value='Post Message' class="btn btn-primary" %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit "Post" %>
-  </div>
+    <%= hidden_field_tag "post[receiver_id]", "#{@user.id}" %>
 
-  <%= hidden_field_tag "post[receiver_id]", "#{@user.id}" %>
-
-<% end %>
+  <% end %>
+</div>
 
 
 <% @posts.reverse.each do |post| %>
