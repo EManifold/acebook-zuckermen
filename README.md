@@ -6,16 +6,16 @@ Façade Brochuré - A superior classy alternative to Facebook. The fullstack web
 
 ## The dev team
 
-# Harry Mumford
+### Harry Mumford
   * [Harry's Github](https://github.com/HarryMumford)
 
-# Andrea Diotallevi
+### Andrea Diotallevi
   * [Andrea's Github](https://github.com)
 
-# David Bacall
+### David Bacall
   * [David's Github](https://github.com)
 
-# Ellie Manifold
+### Ellie Manifold
   * [Ellie's Github](https://github.com)
   
 ## [Live Demo](https://intense-stream-74805.herokuapp.com/)
