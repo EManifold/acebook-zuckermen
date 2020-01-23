@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Users wall posts" do
   scenario "users can post on other users' wall" do
-    sign_up('Harry', 'Mumford', 'harry_mumford@hotmail.co.uk', 'password')
+    sign_up('Harry', 'Mumford', 'hmumford', 'harry_mumford@hotmail.co.uk', 'password')
     user_id = User.all.first.id
     new_user_wall_post(user_id, 'Test user wall post')
 
