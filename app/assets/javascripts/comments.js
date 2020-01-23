@@ -3,18 +3,17 @@
 
 $( document ).ready(function() {
 
-  $( ".comment-btn" ).click(function(e){
-    e.preventDefault();
-    var commentClasses = this.className.split('-')
-    var commentNum = commentClasses[commentClasses.length-1]
-    $( "#comment-" + commentNum).toggle();
-  });
+  toggle = function(className, id) {
+    $(`${className}`).click(function(e){
+      e.preventDefault();
+      var classes = this.className.split('-')
+      var idNum = classes[classes.length - 1]
+      $(`${id}` + idNum).toggle();
+    })
+  }
 
-  $( ".show-comments-btn" ).click(function(e){
-    e.preventDefault();
-    var showCommentClasses = this.className.split('-')
-    var showCommentNum = showCommentClasses[showCommentClasses.length-1]
-    $( "#show-comments-" + showCommentNum).toggle();
-  });
+  toggle(".comment-btn", "#comment-")
+
+  toggle(".show-comments-btn", "#show-comments-")
 
 });
