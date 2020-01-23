@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   delete "/sign_out" => "sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   get "/:id" => "posts#wall", as: "user_wall"
+  post "/:id" => "posts#new", as: "user_wall_post"
 
   post "/posts/:id/edit" => "posts#update"
   root 'sessions#new#title'

@@ -32,3 +32,9 @@ def new_comment(message)
   fill_in "comment[message]", with: message
   click_on "Comment"
 end
+
+def new_user_wall_post(receiver_id, message)
+  visit("/#{receiver_id}")
+  fill_in "post[message]", with: message
+  click_button "Post"
+end

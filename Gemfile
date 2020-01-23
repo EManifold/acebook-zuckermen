@@ -12,6 +12,8 @@ gem 'orderly'
 gem 'rails', '~> 5.1.1'
 # Use clearance for authentication and user functionality
 gem 'clearance'
+# Use jQuery-rails for using jQuery with rails
+gem 'jquery-rails'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
