@@ -1,8 +1,9 @@
-def sign_up(firstname, surname, email, password)
+def sign_up(firstname, surname, username, email, password)
   visit "/"
   click_on "Sign up"
   fill_in "First name", with: firstname
   fill_in "Surname", with: surname
+  fill_in "Username", with: username
   fill_in "Email", with: email
   fill_in "Password", with: password
   within ".submit-field" do

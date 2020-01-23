@@ -42,6 +42,9 @@ class PostsController < ApplicationController
   def wall
     if User.exists?(params[:id])
       @user = User.find(params[:id])
+    elsif User.find_by(username: params[:id])
+      @user = User.find_by(username: params[:id])
+      render :wall
     else
       render_404
     end

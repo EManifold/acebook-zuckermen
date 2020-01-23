@@ -4,7 +4,7 @@ RSpec.describe PostsController, type: :controller do
 
   describe "Signed in" do
 
-    before(:each) {sign_in}
+    before(:each) { sign_in }
 
     describe "GET /posts/new " do
       it "responds with 200" do
@@ -37,7 +37,7 @@ RSpec.describe PostsController, type: :controller do
       it "edits a post" do
         post :create, params: { post: { message: "Hello, world!" } }
         @id = Post.find_by(message: "Hello, world!").id
-        patch :update , params: { id: @id, post: { message: "Hellooo, world!" } }
+        patch :update, params: { id: @id, post: { message: "Hellooo, world!" } }
        
         expect(Post.find_by(message: "Hellooo, world!").message).to eq "Hellooo, world!"
       end
@@ -47,7 +47,7 @@ RSpec.describe PostsController, type: :controller do
       it "deletes a post" do
         post :create, params: { post: { message: "Hello, world!" } }
         @id = Post.find_by(message: "Hello, world!").id
-        delete :destroy , params: { id: @id }
+        delete :destroy, params: { id: @id }
        
         expect(Post.find_by(message: "Hellooo, world!")).to eq nil
       end

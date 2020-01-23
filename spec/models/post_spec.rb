@@ -10,7 +10,7 @@ RSpec.describe Post, type: :model do
   #   )
   # end
 
-  let (:user) { create :user}
+  let(:user) { create :user }
 
   describe '#recent?' do
     it 'returns true if post created within 10mins' do
