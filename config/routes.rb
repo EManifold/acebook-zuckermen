@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :posts
+  resources :likes, controller: "likes", only: [:create, :destroy]
 
   constraints Clearance::Constraints::SignedIn.new do
     root to: 'posts#index', as: :posts_root

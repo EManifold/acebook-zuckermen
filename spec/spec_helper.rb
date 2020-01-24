@@ -17,7 +17,7 @@ end
 
 RSpec.configure do |config|
   config.before(:each) do
-    ActiveRecord::Base.connection.execute("TRUNCATE posts, users, comments;")
+    ActiveRecord::Base.connection.execute("TRUNCATE posts, users, comments, likes;")
   end
 
   config.backtrace_exclusion_patterns = [/gem/]

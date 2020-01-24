@@ -37,6 +37,32 @@
     <p><%= link_to "#{@user.first_name} #{@user.surname}", user_wall_path(@user) %></p>
     <p><%= post.message.html_safe %></p>
     <p><%= post.created_at.strftime('%d %B %Y at %k:%M') %></p>
+    <% if signed_in? %>
+      <% if Like.where(user_id: current_user.id, post_id: post.id).length == 0 %>
+        <%= form_with(model: @like, local: true, url: likes_path) do |like| %>
+        <%= hidden_field_tag "like[user_id]", current_user.id %>
+        <%= hidden_field_tag "like[post_id]", post.id %>
+        <div class="likes">
+          <button type="submit" name="commit" class="btn btn-primary">
+            <i class="fas fa-thumbs-up"></i>
+          </button>
+          <%= Like.where(post_id: post.id).length %>
+        </div>
+        <% end %>
+      <% else %>
+        <%= form_with(model: @like, local: true, :method => :delete, url: like_path({id: Like.where(user_id: current_user.id, post_id: post.id)[0].id})) do |like| %>
+        <%= hidden_field_tag "like[user_id]", current_user.id %>
+        <%= hidden_field_tag "like[post_id]", post.id %>
+        
+        <div class="likes">
+          <button type="submit" name="commit" class="btn btn-primary">
+            <i class="fas fa-thumbs-down"></i>
+          </button>
+          <%= Like.where(post_id: post.id).length %>
+        </div>
+        <% end %>
+      <% end %>
+    <% end %>
     <%= link_to 'Comment', posts_path, class: "comment-btn btn btn-primary comment-btn-#{post.id}" %>
     <%= link_to 'Show Comments', posts_path, class: "show-comments-btn btn btn-primary show-comments-btn-#{post.id}" %>
     <%= link_to 'Delete', post_path(post), method: :delete, class: "btn btn-primary" %>
