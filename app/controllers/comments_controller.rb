@@ -11,17 +11,27 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    redirect_with_notice(posts_path, NOTICES[:edit_own_comments]) unless correct_user?
-    redirect_with_notice(posts_path, NOTICES[:ten_min_edit]) unless recent_comment?
-    render :edit if correct_user? && recent_comment?
+    if !correct_user?
+      redirect_with_notice(posts_path, NOTICES[:edit_own_comments])
+    elsif !recent_comment?
+      redirect_with_notice(posts_path, NOTICES[:ten_min_edit])
+    else
+      render :edit
+    end
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    @post = Post.find_by(id: params["comment"][:post_id])
-    redirect_with_notice("/#{@post.receiver_id}", NOTICES[:successful_comment]) if wall_post? 
-    redirect_with_notice(posts_path, NOTICES[:successful_comment]) if home_post?
-    redirect_with_notice(posts_path, NOTICES[:blank_comment]) unless @comment.save
+    assign_post_and_comment
+    if wall_post?
+      redirect_with_notice("/#{@post.receiver_id}", NOTICES[:successful_comment])
+    elsif home_post?
+      redirect_with_notice(posts_path, NOTICES[:successful_comment])
+    else
+      redirect_with_notice(posts_path, NOTICES[:blank_comment])
+    end
+    # redirect_with_notice("/#{@post.receiver_id}", NOTICES[:successful_comment]) if wall_post? 
+    # redirect_with_notice(posts_path, NOTICES[:successful_comment]) if home_post?
+    # redirect_with_notice(posts_path, NOTICES[:blank_comment]) unless @comment.save
   end
 
   def update
@@ -42,6 +52,11 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  def assign_post_and_comment
+    @comment = Comment.new(comment_params)
+    @post = Post.find_by(id: params["comment"][:post_id])
+  end
 
   def home_post?
     @comment.save && !@post.receiver_id
