@@ -4,7 +4,7 @@
 
 Façade Brochuré - A superior classy alternative to Facebook. The fullstack web app is packed full of impressive features. Users can sign up, log in, post and comment using our fancy UI. For a more personalised experience, users can choose between a range of themes and fonts for their individual newsfeed and wall. Users can be confident in our highly secure system that protects their sensitive password data and does not allow other users to post on their behalf. Watch this space for new exciting features that Mark Zuckerberg could only dream of.
 
-### Software used
+### Technologies used
 
 * Ruby on Rails
 * Javascript
@@ -12,16 +12,16 @@ Façade Brochuré - A superior classy alternative to Facebook. The fullstack web
 * Bootstrap
 * Git
 
-## Meet our dev team
+## Dev team
 
 ### Harry Mumford
   * [Harry's Github](https://github.com/HarryMumford)
 
 ### Andrea Diotallevi
-  * [Andrea's Github](https://github.com)
+  * [Andrea's Github](https://github.com/AndreaDiotallevi)
 
 ### David Bacall
-  * [David's Github](https://github.com)
+  * [David's Github](https://github.com/dbacall)
 
 ### Ellie Manifold
   * [Ellie's Github](https://github.com/EManifold)
@@ -35,7 +35,6 @@ First, clone this repository. Then:
 ```bash
 > bundle install
 > rake db:create
-> rake db:schema:load
 > rake db:migrate
 
 > bundle exec rspec # Run the tests to ensure it works
@@ -63,12 +62,3 @@ To run the tests:
 
 ## How to contribute to this project
 See [CONTRIBUTING.md](CONTRIBUTING.md)
-
-## Initial requirements
-
-1. Fork this repository to `acebook-teamname` and customize
-the below**
-
-[You can find the engineering project outline here.](https://github.com/makersacademy/course/tree/master/engineering_projects/rails)
-
-2. The card wall is here: <please update>
