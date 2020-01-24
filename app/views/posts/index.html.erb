@@ -10,7 +10,7 @@
 </div>
 <ul>
   <% @comment.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
+    <li class="><%= message %></li>
   <% end %>
 </ul>
 </div>
@@ -18,7 +18,7 @@
   <div class='post' id='<%=post.id%>'>
     <% @user = User.where(id: post.user_id)[0] %> 
     <p><%= link_to "#{@user.first_name} #{@user.surname}", user_wall_path(@user) %></p>
-    <p><%= post.message.html_safe %></p>
+    <p class="post-message"><%= post.message.html_safe %></p>
     <p><%= post.created_at.strftime('%d %B %Y at %k:%M') %></p>
     <% if signed_in? %>
       <% if Like.where(user_id: current_user.id, post_id: post.id).length == 0 %>

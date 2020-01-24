@@ -31,7 +31,10 @@ h2 {
 
 #title {
   color: black;
-  font-size: 4em;
+  font-size: 6em;
+  font-family: 'Italianno', cursive;
+  padding-left: 30px;
+  padding-top: 10px;
 }
 
 #welcome-msg {
@@ -43,6 +46,10 @@ h2 {
 
 .navbar-nav {
   margin-left: 2%;
+}
+
+.navbar {
+  height: 100px;
 }
 
 #new-post {
@@ -83,3 +90,8 @@ h2 {
 .user-customisation {
   display: inline;
 }
+
+.sign-in-flash {
+  text-align: center;
+}
+
