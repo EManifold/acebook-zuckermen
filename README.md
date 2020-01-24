@@ -1,3 +1,5 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/7fda849bdfddf3bc3ed5/maintainability)](https://codeclimate.com/github/EManifold/acebook-zuckermen/maintainability)[![Test Coverage](https://api.codeclimate.com/v1/badges/7fda849bdfddf3bc3ed5/test_coverage)](https://codeclimate.com/github/EManifold/acebook-zuckermen/test_coverage)[![Build Status](https://travis-ci.org/EManifold/acebook-zuckermen.svg?branch=master)](https://travis-ci.org/EManifold/acebook-zuckermen)
+
 # AceBook
 
 ## Project description
@@ -47,14 +49,6 @@ To run the tests:
 > bundle exec rspec
 > bundle exec rubocop
 ```
-
-## Code Climate
-[![Maintainability](https://api.codeclimate.com/v1/badges/7fda849bdfddf3bc3ed5/maintainability)](https://codeclimate.com/github/EManifold/acebook-zuckermen/maintainability)
-
-[![Test Coverage](https://api.codeclimate.com/v1/badges/7fda849bdfddf3bc3ed5/test_coverage)](https://codeclimate.com/github/EManifold/acebook-zuckermen/test_coverage)
-
-## Travis
-[![Build Status](https://travis-ci.org/EManifold/acebook-zuckermen.svg?branch=master)](https://travis-ci.org/EManifold/acebook-zuckermen)
 
 ## [Trello Board](https://trello.com/b/36aeqHBo/zuckermen-acebook)
 
