@@ -17,14 +17,14 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <h1 id='title'>façade brochuré</h1>
       <div class="navbar-nav">
-        <div><%= link_to "Home", posts_path, class: "nav-item nav-link" %></div>
+        <%= link_to (content_tag(:i, " Home", class: 'fas fa-home')),  posts_path, class: "nav-item nav-link" %>
         <% if signed_in? %>
-          <%= link_to "Your Account", user_wall_path(current_user.id), class: "nav-item nav-link" %>
-          <%= link_to 'Sign out', sign_out_path, method: :delete, class: "nav-item nav-link" %>
+          <%= link_to (content_tag(:i, " Your Account", class: 'fas fa-user-alt')), user_wall_path(current_user.id), class: "nav-item nav-link" %>
+          <%= link_to (content_tag(:i, " Sign out", class: 'fas fa-sign-out-alt')), sign_out_path, method: :delete, class: "nav-item nav-link" %>
           <p id='welcome-msg'>Hello <%= link_to "#{current_user.first_name}", user_wall_path(current_user.id) %>!</p>
         <% else %>
-          <%= link_to 'Sign in', sign_in_path, class: "nav-item nav-link"  %>
-          <%= link_to 'Sign up', sign_up_path, class: "nav-item nav-link"  %>
+          <%= link_to (content_tag(:i, " Sign in", class: 'fas fa-sign-in-alt')), sign_in_path, class: "nav-item nav-link"  %>
+          <%= link_to (content_tag(:i, " Sign up", class: 'fas fa-user-plus')), sign_up_path, class: "nav-item nav-link"  %>
         <% end %>
       </div>
     </nav>

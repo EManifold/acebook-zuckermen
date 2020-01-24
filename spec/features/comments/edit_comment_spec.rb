@@ -56,11 +56,11 @@ RSpec.feature "Update", type: :feature do
   scenario "User receives an error message when they try to update another users comment" do
     new_post('First post')
     new_comment('Test comment')
-    # post = Post.find_by(message: 'First post')
 
     click_on 'Sign out'
 
     sign_up('Andrea', 'Diotallevi', 'adiotallevi', 'andrea@example.co.uk', 'password')
+
     visit "/posts"
 
     click_on "Show Comments"
