@@ -2,84 +2,74 @@ class CommentsController < ApplicationController
   include CommentsHelper
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
-  # GET /comments
-  # GET /comments.json
   def index
     @comments = Comment.all
   end
 
-  # GET /comments/1
-  # GET /comments/1.json
-  def show
-  end
-
-  # GET /comments/new
   def new
     @comment = Comment.new
   end
 
-  # GET /comments/1/edit
   def edit
-    # @post = Post.new
-    respond_to do |format|
-      if !recent_comment?
-        render_10_min_error(format)
-      elsif !correct_user?
-        render_only_edit_own_comment_error(format)
-      else
-        format.html { render :edit }
-      end
+    if !correct_user?
+      redirect_with_notice(posts_path, NOTICES[:edit_own_comments])
+    elsif !recent_comment?
+      redirect_with_notice(posts_path, NOTICES[:ten_min_edit])
+    else
+      render :edit
     end
   end
 
-  # POST /comments
-  # POST /comments.json
   def create
-    @comment = Comment.new(comment_params)
-    @post = Post.find_by(id: params["comment"][:post_id])
-    respond_to do |format|
-      if @comment.save && @post.receiver_id
-        format.html { redirect_to "/#{@post.receiver_id}", notice: 'Comment was successfully created.' }
-      elsif @comment.save
-        format.html { redirect_to posts_path, notice: 'Comment was successfully created.' }
-      else
-        format.html { redirect_to posts_path, notice: 'Comment must not be blank.' }
-      end
+    assign_post_and_comment
+    if wall_post?
+      redirect_with_notice("/#{@post.receiver_id}", NOTICES[:successful_comment])
+    elsif home_post?
+      redirect_with_notice(posts_path, NOTICES[:successful_comment])
+    else
+      redirect_with_notice(posts_path, NOTICES[:blank_comment])
     end
+    # redirect_with_notice("/#{@post.receiver_id}", NOTICES[:successful_comment]) if wall_post? 
+    # redirect_with_notice(posts_path, NOTICES[:successful_comment]) if home_post?
+    # redirect_with_notice(posts_path, NOTICES[:blank_comment]) unless @comment.save
   end
 
-  # PATCH/PUT /comments/1
-  # PATCH/PUT /comments/1.json
   def update
-    respond_to do |format|
-      if @comment.update(comment_params)
-        format.html { redirect_to posts_path, notice: 'Comment was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+    if @comment.update(comment_params)
+      redirect_with_notice(posts_path, NOTICES[:updated_successfully])
+    else
+      render :edit
     end
   end
 
-  # DELETE /comments/1
-  # DELETE /comments/1.json
   def destroy
-    respond_to do |format|
-      if !correct_user?
-        format.html { redirect_to posts_path, notice: 'You can only delete your own comments' }
-      else
-        @comment.destroy
-        format.html { redirect_to posts_url, notice: 'Comment was successfully destroyed.' }
-      end
+    if correct_user?
+      @comment.destroy
+      redirect_with_notice(posts_path, NOTICES[:destroyed_successfully])
+    else
+      redirect_with_notice(posts_path, NOTICES[:delete_own_comments])
     end
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
+
+  def assign_post_and_comment
+    @comment = Comment.new(comment_params)
+    @post = Post.find_by(id: params["comment"][:post_id])
+  end
+
+  def home_post?
+    @comment.save && !@post.receiver_id
+  end
+
+  def wall_post?
+    @comment.save && @post.receiver_id
+  end
+
   def set_comment
     @comment = Comment.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def comment_params
     params.require(:comment).permit(:message, :post_id, :user_id)
   end
