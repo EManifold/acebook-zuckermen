@@ -56,15 +56,16 @@ RSpec.feature "Update", type: :feature do
   scenario "User receives an error message when they try to update another users comment" do
     new_post('First post')
     new_comment('Test comment')
+    # post = Post.find_by(message: 'First post')
 
     click_on 'Sign out'
 
     sign_up('Andrea', 'Diotallevi', 'adiotallevi', 'andrea@example.co.uk', 'password')
-    click_on 'Home'
+    visit "/posts"
 
-    within('.comment') do
-      click_link "Edit"
-    end
+    click_on "Show Comments"
+
+    click_on "Edit Comment"
 
     expect(page).to have_content('You can only edit your own comments')
     expect(page.current_path).to eq('/posts')

@@ -6,6 +6,10 @@ RSpec.feature "Comments", type: :feature do
     new_post('First post')
 
     new_comment('Test comment')
+    click_on 'Show Comments'
+
+    sleep(1)
+    
     expect(page).to have_content 'Test comment'
 
     within ".comment-user" do
