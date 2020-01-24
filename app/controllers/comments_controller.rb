@@ -2,14 +2,6 @@ class CommentsController < ApplicationController
   include CommentsHelper
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @comments = Comment.all
-  end
-
-  def new
-    @comment = Comment.new
-  end
-
   def edit
     if !correct_user?
       redirect_with_notice(request.referrer, NOTICES[:edit_own_comments])
