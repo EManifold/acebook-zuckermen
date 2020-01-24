@@ -7,10 +7,14 @@
   margin-bottom: 3%;
   background-color: #1b262c;
   border-radius: 10px;
+  padding: 12.5px 0;
 }
 
 .comment-user, .post-user {
   font-weight: bold;
 }
 
-
+.post-message {
+  color: #bbe1fa;
+  font-size: 1.5em;
+}
