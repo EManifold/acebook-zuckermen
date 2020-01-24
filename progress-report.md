@@ -50,7 +50,6 @@ David:
 - Wasted a bit of time getting frustrated about understanding rails, could have found a useful article quicker instead of just staring at it.
 - Understand much more now than before.
 
-
 ## Sprint 2
 
 ### Sprint goals
@@ -73,10 +72,10 @@ https://guides.rubyonrails.org/
     - Overcome some challenges with Rails
     - Learning a lot through the struggles 
     - Communication has been good 
+    
 ### What could've gone better
     - Been blocked a lot, improving debugging process
     - Stricter time-boxing
-
 
 ## Sprint 3
 
@@ -100,5 +99,34 @@ https://www.youtube.com/watch?v=fVtGy3QL9xg
 ### What could've gone better
     - Not much, good sprint
     - Timeblocks for Heroku early on in sprint
+    
+## Sprint 4
+
+### Sprint goals
+- Styling
+- User wall feature including posts and comments
+- Likes for posts
+
+### Blockers
+- Heroku wouldn't deploy because the uglifier was not updated to compress ES6 JS. Had to change a line for uglifier to compress for ES6 syntax
+- Capybara, unable to find the right class because name of button was changed
+
+### Learning Resources
+- W3 schools for CSS
+
+Locating capybara button
+https://stackoverflow.com/questions/55482869/using-capybara-to-select-a-button-without-an-id-or-value
+
+Redirecting to current page
+https://stackoverflow.com/questions/8952487/how-do-i-redirect-back-to-a-page-im-currently-on
+
+
+### What has gone well
+    - Acheived goals
+    - Good communication
+    
+### What could've gone better
+    - Better process for debugging
+    - Ask for new requirements earlier
     
     
