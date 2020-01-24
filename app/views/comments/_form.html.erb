@@ -12,11 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :message %>
-    <%= form.text_area :message, id: :comment_message %>
+    <%= form.text_area :message, id: :comment_message, class: "new-post" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
