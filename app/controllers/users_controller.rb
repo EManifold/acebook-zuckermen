@@ -1,19 +1,17 @@
 class UsersController < Clearance::UsersController
+  include UsersHelper
 
   def create
     @user = user_from_params
 
     if password_length_checker
-      flash[:alert] = "Password must be 6-10 characters!"
-      redirect_to '/sign_up'
+      invalid_password
     elsif @user.save
       sign_in @user
       redirect_to user_wall_path(@user)
     else
-      flash[:alert] = "Username already taken!"
-      render template: "users/new"
+      username_taken
     end
-
   end
 
   private
