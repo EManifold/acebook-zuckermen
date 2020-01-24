@@ -29,9 +29,6 @@ class CommentsController < ApplicationController
     else
       redirect_with_notice(posts_path, NOTICES[:blank_comment])
     end
-    # redirect_with_notice("/#{@post.receiver_id}", NOTICES[:successful_comment]) if wall_post? 
-    # redirect_with_notice(posts_path, NOTICES[:successful_comment]) if home_post?
-    # redirect_with_notice(posts_path, NOTICES[:blank_comment]) unless @comment.save
   end
 
   def update
