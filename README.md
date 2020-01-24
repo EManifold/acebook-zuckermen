@@ -24,7 +24,7 @@ Façade Brochuré - A superior classy alternative to Facebook. The fullstack web
   * [David's Github](https://github.com)
 
 ### Ellie Manifold
-  * [Ellie's Github](https://github.com)
+  * [Ellie's Github](https://github.com/EManifold)
   
 ## [Live Demo](https://intense-stream-74805.herokuapp.com/)
 
@@ -36,6 +36,7 @@ First, clone this repository. Then:
 > bundle install
 > rake db:create
 > rake db:schema:load
+> rake db:migrate
 
 > bundle exec rspec # Run the tests to ensure it works
 > rails server # Start the server at localhost:3000
