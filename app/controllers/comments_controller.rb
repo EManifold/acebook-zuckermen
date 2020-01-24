@@ -12,9 +12,9 @@ class CommentsController < ApplicationController
 
   def edit
     if !correct_user?
-      redirect_with_notice(posts_path, NOTICES[:edit_own_comments])
+      redirect_with_notice(request.referrer, NOTICES[:edit_own_comments])
     elsif !recent_comment?
-      redirect_with_notice(posts_path, NOTICES[:ten_min_edit])
+      redirect_with_notice(request.referrer, NOTICES[:ten_min_edit])
     else
       render :edit
     end
@@ -29,14 +29,21 @@ class CommentsController < ApplicationController
     else
       redirect_with_notice(posts_path, NOTICES[:blank_comment])
     end
-    # redirect_with_notice("/#{@post.receiver_id}", NOTICES[:successful_comment]) if wall_post? 
+    # redirect_with_notice("/#{@post.receiver_id}", NOTICES[:successful_comment]) if wall_post?
     # redirect_with_notice(posts_path, NOTICES[:successful_comment]) if home_post?
     # redirect_with_notice(posts_path, NOTICES[:blank_comment]) unless @comment.save
   end
 
   def update
+    @post = Post.where(id: @comment.post_id)[0]
+    p @post
+    p @post.receiver_id
     if @comment.update(comment_params)
-      redirect_with_notice(posts_path, NOTICES[:updated_successfully])
+      if @post.receiver_id
+        redirect_with_notice("/#{@post.receiver_id}", NOTICES[:updated_successfully])
+      else
+        redirect_with_notice(posts_path, NOTICES[:updated_successfully])
+      end
     else
       render :edit
     end

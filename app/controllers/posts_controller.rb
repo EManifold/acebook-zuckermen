@@ -10,10 +10,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.user != current_user
       flash[:alert] = "You can only edit your own posts"
-      redirect_to posts_url
+      redirect_to request.referrer
     elsif !@post.recent?
       flash[:alert] = "You can only edit the post for 10 minutes after posting"
-      redirect_to posts_url
+      redirect_to request.referrer
     end
   end
 
@@ -22,11 +22,7 @@ class PostsController < ApplicationController
     @post = @user.posts.new(post_params)
     @post.line_break
     if @post.save
-      if @post.receiver_id
-        redirect_to "/#{@post.receiver_id}"
-      else
-        redirect_to posts_url
-      end
+      redirect_to request.referrer
     else
       render 'new'
     end
