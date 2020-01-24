@@ -32,7 +32,6 @@ class PostsController < ApplicationController
     else
       render 'new'
     end
-
   end
 
   def destroy
@@ -53,10 +52,9 @@ class PostsController < ApplicationController
   def wall
     @comment, @post = Comment.new, Post.new
     if User.exists?(params[:id])
-      @user, @posts = User.find(params[:id]), Post.where(receiver_id: params[:id])
+      assign_for_id_wall
     elsif User.find_by(username: params[:id])
-      @user = User.find_by(username: params[:id])
-      @posts = Post.where(receiver_id: @user.id)
+      assign_for_username_wall
       render :wall
     else
       render_404
@@ -69,6 +67,16 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def assign_for_id_wall
+    @user = User.find(params[:id])
+    @posts = Post.where(receiver_id: params[:id])
+  end
+
+  def assign_for_username_wall
+    @user = User.find_by(username: params[:id])
+    @posts = Post.where(receiver_id: @user.id)
+  end
 
   def post_params
     params.require(:post).permit(:message, :receiver_id)
