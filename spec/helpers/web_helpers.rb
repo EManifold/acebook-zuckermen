@@ -37,7 +37,7 @@ end
 def new_wall_comment(receiver_id, message)
   visit("/#{receiver_id}")
   fill_in "comment[message]", with: message
-  click_on "Comment"
+  click_on "Post Comment"
 end
 
 def new_user_wall_post(receiver_id, message)
