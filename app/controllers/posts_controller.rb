@@ -22,7 +22,13 @@ class PostsController < ApplicationController
     @post = @user.posts.new(post_params)
     @post.line_break
     if @post.save
-      redirect_to request.referrer
+      if @post.receiver_id
+        flash[:alert] = "Your post was created successfully."
+        redirect_to "/#{@post.receiver_id}"
+      else
+        flash[:alert] = "Your post was created successfully."
+        redirect_to posts_path
+      end
     else
       render 'new'
     end

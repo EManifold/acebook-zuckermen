@@ -42,6 +42,6 @@ end
 
 def new_user_wall_post(receiver_id, message)
   visit("/#{receiver_id}")
-  fill_in "post[message]", with: message
-  click_button "Post"
+  fill_in "post_message", with: message
+  click_button "Post Message"
 end

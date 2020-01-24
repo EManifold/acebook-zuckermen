@@ -36,8 +36,6 @@ class CommentsController < ApplicationController
 
   def update
     @post = Post.where(id: @comment.post_id)[0]
-    p @post
-    p @post.receiver_id
     if @comment.update(comment_params)
       if @post.receiver_id
         redirect_with_notice("/#{@post.receiver_id}", NOTICES[:updated_successfully])
