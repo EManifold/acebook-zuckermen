@@ -1,13 +1,30 @@
 # AceBook
 
-REQUIRED INSTRUCTIONS:
+## Project description
 
-1. Fork this repository to `acebook-teamname` and customize
-the below**
+Façade Brochuré - A superior classy alternative to Facebook. The fullstack web app is packed full of impressive features. Users can sign up, log in, post and comment using our fancy UI. For a more personalised experience, users can choose between a range of themes and fonts for their individual newsfeed and wall. Users can be confident in our highly secure system that protects their sensitive password data and does not allow other users to post on their behalf. Watch this space for new exciting features that Mark Zuckerberg could only dream of.
 
-[You can find the engineering project outline here.](https://github.com/makersacademy/course/tree/master/engineering_projects/rails)
+### Software used
 
-2. The card wall is here: <please update>
+* Ruby on Rails
+* Javascript
+* JQuery
+* Bootstrap
+* Git
+
+## Meet our dev team
+
+### Harry Mumford
+  * [Harry's Github](https://github.com/HarryMumford)
+
+### Andrea Diotallevi
+  * [Andrea's Github](https://github.com)
+
+### David Bacall
+  * [David's Github](https://github.com)
+
+### Ellie Manifold
+  * [Ellie's Github](https://github.com/EManifold)
   
 ## [Live Demo](https://intense-stream-74805.herokuapp.com/)
 
@@ -19,9 +36,17 @@ First, clone this repository. Then:
 > bundle install
 > rake db:create
 > rake db:schema:load
+> rake db:migrate
 
 > bundle exec rspec # Run the tests to ensure it works
 > rails server # Start the server at localhost:3000
+```
+
+To run the tests:
+
+```
+> bundle exec rspec
+> bundle exec rubocop
 ```
 
 ## Code Climate
@@ -38,3 +63,12 @@ First, clone this repository. Then:
 
 ## How to contribute to this project
 See [CONTRIBUTING.md](CONTRIBUTING.md)
+
+## Initial requirements
+
+1. Fork this repository to `acebook-teamname` and customize
+the below**
+
+[You can find the engineering project outline here.](https://github.com/makersacademy/course/tree/master/engineering_projects/rails)
+
+2. The card wall is here: <please update>

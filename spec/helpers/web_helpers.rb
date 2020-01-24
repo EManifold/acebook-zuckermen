@@ -29,14 +29,15 @@ end
 
 def new_comment(message)
   visit '/posts'
+  click_on 'Comment'
   fill_in "comment[message]", with: message
-  click_on "Comment"
+  click_on "Post Comment"
 end
 
 def new_wall_comment(receiver_id, message)
   visit("/#{receiver_id}")
   fill_in "comment[message]", with: message
-  click_on "Post Comment"
+  click_on "Comment"
 end
 
 def new_user_wall_post(receiver_id, message)

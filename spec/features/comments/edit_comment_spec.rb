@@ -60,11 +60,12 @@ RSpec.feature "Update", type: :feature do
     click_on 'Sign out'
 
     sign_up('Andrea', 'Diotallevi', 'adiotallevi', 'andrea@example.co.uk', 'password')
-    visit '/posts'
-    click_on 'Show Comments'
-    within('.comment') do
-      click_link "Edit"
-    end
+
+    visit "/posts"
+
+    click_on "Show Comments"
+
+    click_on "Edit Comment"
 
     expect(page).to have_content('You can only edit your own comments')
     expect(page.current_path).to eq('/posts')
