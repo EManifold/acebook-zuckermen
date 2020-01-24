@@ -60,8 +60,8 @@ RSpec.feature "Update", type: :feature do
     click_on 'Sign out'
 
     sign_up('Andrea', 'Diotallevi', 'adiotallevi', 'andrea@example.co.uk', 'password')
-    click_on 'Home'
-
+    visit '/posts'
+    click_on 'Show Comments'
     within('.comment') do
       click_link "Edit"
     end

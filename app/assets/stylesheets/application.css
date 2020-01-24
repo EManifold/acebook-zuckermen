@@ -13,7 +13,9 @@
  *= require_tree .
  *= require_self
  */
-
+/*
+ *= require font-awesome
+ */
  body {
   background-color: #3282B8;
   color: white;
@@ -78,3 +80,6 @@ h2 {
   display: block;
 }
 
+.user-customisation {
+  display: inline;
+}
