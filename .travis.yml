@@ -18,8 +18,8 @@ after_script:
   - ./cc-test-reporter after-build -t simplecov --exit-code $TRAVIS_TEST_RESULT
 deploy:
   provider: heroku
-  app: intense-stream-74805
+  app: acebook-zuckerman
   on:
     repo: EManifold/acebook-zuckermen
   api_key:
-    secure: 6bf81a13-e7dc-4a0d-95d7-ac0577eefe29
+    secure: ubvXRjZj9EIU9ep8FzGDlUvHu5aeVmyY1dIoliPFQyK2eNxSXxfF0xL9gG+0JXgZ7IN5GohxI+5dQ0f4xAEAo1oqG/sKnfQPP+m2zVd70rBRwUQQi9tQkXDToWSqylYDqJX36elr0IAJ0Y+ifuSntH73YA5sZfGo+fgS8k2s/OlsVZx6ehIaSZTkWYMcGcBwhzkaue2aKdRu93qmDL3vWchzsyuKOT18Kd5c4fFnN50nXyslG7U+82YEjSjarSDZTtH5oCEQWhfs04nz7GgUJPcX3oPvAPyqWqgzTwfGyQLp4WAxPdkc6BO65yKHGvUIp7Y6zX/y0zcihcKveEcWCJKKN5yaBjaUcC6xFc6gioSO1m0RKdwmF4veCqjv3Wo3ByHZtUYZTpWeIHVxOqPZAfouGKGBuwHXO3Tx+ePxmIsurToPPSGi2IwdbWPyzRJQzvBrQ/6V7KVnd8nITkyhxx1fuV43A0CXPCriOYsqJihsqyseiKzYZEKF4fNZ6pvgn+2041vtj+5Ys7Y55YKD3SXY8aWcsd01//5lfpm6jtkInUhBMZ+/iGx+wyhUmgclJtNscVcqxicAYl22BY+I639olmh8AdI5xG+rtF2KPfrCGRDhj7ki+aFdbMp9SNa/ve8vs1hLiSfs5k0C0OItAhSoaXipm374RI67vq/mUYE=
