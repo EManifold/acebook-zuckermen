@@ -26,7 +26,7 @@ gem 'rubocop', '~> 0.71.0', require: false
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Simplecov for test coverage
-gem 'simplecov', require: false, group: :test
+gem 'simplecov', '0.17.1', require: false, group: :test
 gem 'simplecov-console', require: false
 # Use Uglifier as compressor for JavaScript assets
 # Use Travis CI for continuous integration

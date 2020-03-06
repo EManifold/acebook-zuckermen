@@ -291,7 +291,7 @@ DEPENDENCIES
   rubocop (~> 0.71.0)
   sass-rails (~> 5.0)
   selenium-webdriver
-  simplecov
+  simplecov (= 0.17.1)
   simplecov-console
   timecop
   travis

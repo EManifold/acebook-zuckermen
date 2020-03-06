@@ -5,19 +5,21 @@ env:
   global:
   - CC_TEST_REPORTER_ID=85ca9dd8683abc577230481be6e37304a287904bd1897db53b2715984a1bdd66
 services:
-- postgresql
+  - postgresql
 before_script:
-- bundle exec rake db:create
-- bundle exec rake db:migrate
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 script:
-- bundle exec rspec
+  - bundle exec rspec
+after_script:
+  - ./cc-test-reporter after-build -t simplecov --exit-code $TRAVIS_TEST_RESULT
 deploy:
   provider: heroku
   app: intense-stream-74805
   on:
     repo: EManifold/acebook-zuckermen
-  run:
-  - bundle exec rails db:create
-  - bundle exec rails db:migrate
   api_key:
     secure: 6bf81a13-e7dc-4a0d-95d7-ac0577eefe29
