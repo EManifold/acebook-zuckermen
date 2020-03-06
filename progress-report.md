@@ -1,7 +1,7 @@
 # acebook-notes
 
 ### Deployed Application
-https://intense-stream-74805.herokuapp.com/
+https://acebook-zuckerman.herokuapp.com/
 
 ## Sprint 1
 
