@@ -10,7 +10,7 @@ Façade Brochuré - A superior classy alternative to Facebook. The fullstack web
 
 ## Live Demo
 
-The application is deployed to Heroku at this link: [https://acebook-zuckerman.herokuapp.com/](https://acebook-zuckerman.herokuapp.com/)
+The application is deployed to Heroku at this link: [https://acebook-zuckerman.herokuapp.com](https://acebook-zuckerman.herokuapp.com/).
 
 ## The Team
 
